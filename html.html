@@ -1,0 +1,2440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JuicyAds - Earn Money Performing Tasks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4caf50;
+            --primary-dark: #3d8b40;
+            --primary-light: #e8f5e9;
+            --secondary: #ff9800;
+            --light: #f9f9f9;
+            --dark: #333;
+            --gray: #777;
+            --light-gray: #f1f1f1;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .naira-symbol {
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            opacity: 0.9;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .logo i {
+            margin-right: 8px;
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, rgba(255, 255, 255, 1) 100%);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .hero-text h1 {
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+
+        .feature-icon i {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* How It Works */
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .steps:before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-light);
+            z-index: 1;
+        }
+
+        .step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 30%;
+            background-color: var(--white);
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .step-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .step-1 {
+            background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+        }
+
+        .step-2 {
+            background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+        }
+
+        .step-3 {
+            background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80');
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .step h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Earnings Preview */
+        .earnings {
+            background-color: var(--primary-light);
+        }
+
+        .earnings-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .earnings-chart {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .chart-bar {
+            margin-bottom: 30px;
+        }
+
+        .chart-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .chart-bar-inner {
+            height: 25px;
+            background-color: #e0e0e0;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .chart-bar-fill {
+            height: 100%;
+            background-color: var(--primary);
+            border-radius: 50px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        .earnings-text {
+            flex: 1;
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 8px 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .payment-method i {
+            color: var(--primary);
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        /* Task Types */
+        .task-types {
+            background-color: var(--light);
+        }
+
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .task-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .task-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .task-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .task-surveys {
+            background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+        }
+
+        .task-watch {
+            background-image: url('https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+        }
+
+        .task-apps {
+            background-image: url('https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80');
+        }
+
+        .task-shop {
+            background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+        }
+
+        .task-info {
+            padding: 25px;
+        }
+
+        .task-info h4 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .task-info h4 i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .testimonial-avatar i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .testimonial-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .testimonial-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .rating {
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2, .cta-section p {
+            color: white;
+        }
+
+        .cta-section h2:after {
+            background-color: white;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cta-section .btn {
+            margin-top: 20px;
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .cta-section .btn:hover {
+            background-color: var(--light-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding-right: 20px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+            color: #ccc;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content {
+                flex-direction: column;
+            }
+
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 50px;
+                text-align: center;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .earnings-container {
+                flex-direction: column;
+            }
+
+            .earnings-chart {
+                padding-right: 0;
+                margin-bottom: 50px;
+                width: 100%;
+            }
+
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .steps:before {
+                display: none;
+            }
+
+            .step {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-lemon"></i> JuicyAds
+                </a>
+                
+                <div class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#tasks">Tasks</a></li>
+                    <li><a href="#earnings">Earnings</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#" class="btn btn-primary">Get Started</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Earn Money with <span>JuicyAds</span></h1>
+                    <p>Complete simple tasks, watch ads, take surveys, and earn real <span class="naira-symbol">₦aira</span>. Join thousands of users who are already making extra income with our platform.</p>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary">Start Earning Now</a>
+                        <a href="#features" class="btn btn-outline">Learn More</a>
+                    </div>
+                    <p><small>Available across Nigeria - Get paid directly in <span class="naira-symbol">₦aira</span></small></p>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Person using smartphone to earn money">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose JuicyAds</h2>
+                <p>Our platform offers a variety of ways to earn money online with flexibility and transparency.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Simple Tasks</h3>
+                    <p>Complete easy tasks like watching videos, testing apps, or clicking ads to earn <span class="naira-symbol">₦aira</span> instantly.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>High Earnings</h3>
+                    <p>Get paid more than other platforms. Our users earn up to <span class="naira-symbol">₦50,000</span> per day with consistent effort.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Instant Withdrawals</h3>
+                    <p>Withdraw your earnings instantly via bank transfer, airtime, or gift cards with no hidden fees.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Start earning <span class="naira-symbol">₦aira</span> in just three simple steps. No experience required!</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-image step-1"></div>
+                    <div class="step-number">1</div>
+                    <h3>Sign Up Free</h3>
+                    <p>Create your free account in less than 2 minutes. No payment required to get started.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-image step-2"></div>
+                    <div class="step-number">2</div>
+                    <h3>Complete Tasks</h3>
+                    <p>Browse available tasks and choose what interests you. Most tasks take just a few minutes.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-image step-3"></div>
+                    <div class="step-number">3</div>
+                    <h3>Get Paid</h3>
+                    <p>Earn <span class="naira-symbol">₦aira</span> for each completed task. Withdraw your earnings whenever you want.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Task Types -->
+    <section class="task-types" id="tasks">
+        <div class="container">
+            <div class="section-title">
+                <h2>Types of Tasks Available</h2>
+                <p>Choose from a variety of tasks that match your interests and schedule.</p>
+            </div>
+            
+            <div class="tasks-grid">
+                <div class="task-card">
+                    <div class="task-image task-surveys"></div>
+                    <div class="task-info">
+                        <h4><i class="fas fa-clipboard-check"></i> Surveys</h4>
+                        <p>Share your opinions on products and services. Earn <span class="naira-symbol">₦500-₦5,000</span> per survey.</p>
+                    </div>
+                </div>
+                
+                <div class="task-card">
+                    <div class="task-image task-watch"></div>
+                    <div class="task-info">
+                        <h4><i class="fas fa-play-circle"></i> Watch Ads</h4>
+                        <p>Watch short video advertisements. Earn <span class="naira-symbol">₦50-₦500</span> per video.</p>
+                    </div>
+                </div>
+                
+                <div class="task-card">
+                    <div class="task-image task-apps"></div>
+                    <div class="task-info">
+                        <h4><i class="fas fa-mobile-alt"></i> App Testing</h4>
+                        <p>Test new apps and provide feedback. Earn <span class="naira-symbol">₦1,000-₦10,000</span> per app.</p>
+                    </div>
+                </div>
+                
+                <div class="task-card">
+                    <div class="task-image task-shop"></div>
+                    <div class="task-info">
+                        <h4><i class="fas fa-shopping-cart"></i> Online Shopping</h4>
+                        <p>Complete shopping tasks and reviews. Earn cashback and rewards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Earnings Preview -->
+    <section class="earnings" id="earnings">
+        <div class="container">
+            <div class="section-title">
+                <h2>Real Earnings Potential</h2>
+                <p>See how much you could earn in <span class="naira-symbol">₦aira</span> based on time invested per day.</p>
+            </div>
+            
+            <div class="earnings-container">
+                <div class="earnings-chart">
+                    <div class="chart-bar">
+                        <div class="chart-label">
+                            <span>30 minutes/day</span>
+                            <span class="naira-symbol">₦2,000-₦4,000</span>
+                        </div>
+                        <div class="chart-bar-inner">
+                            <div class="chart-bar-fill" id="chart-1"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-bar">
+                        <div class="chart-label">
+                            <span>1 hour/day</span>
+                            <span class="naira-symbol">₦6,000-₦10,000</span>
+                        </div>
+                        <div class="chart-bar-inner">
+                            <div class="chart-bar-fill" id="chart-2"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-bar">
+                        <div class="chart-label">
+                            <span>2 hours/day</span>
+                            <span class="naira-symbol">₦12,000-₦20,000</span>
+                        </div>
+                        <div class="chart-bar-inner">
+                            <div class="chart-bar-fill" id="chart-3"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <div class="payment-method">
+                            <i class="fas fa-university"></i> <span>Bank Transfer</span>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fas fa-mobile-alt"></i> <span>Airtime</span>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fas fa-gift"></i> <span>Gift Cards</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="earnings-text">
+                    <h3>Maximize Your Earnings</h3>
+                    <p>Our platform offers bonus opportunities, referral commissions (<span class="naira-symbol">₦500</span> per referral), and special high-paying tasks that can significantly increase your income.</p>
+                    <p>Top earners on JuicyAds make over <span class="naira-symbol">₦100,000</span> per month by combining regular tasks with referral bonuses and special offers.</p>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 20px;">View Full Earnings Guide</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>User Testimonials</h2>
+                <p>See what our users are saying about their experience with JuicyAds.</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Chinedu Okoro</h4>
+                            <p>Student, Lagos</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"I've been using JuicyAds for 6 months to earn extra money while in university. It's so easy to use and the payments are always on time. I've made over <span class="naira-symbol">₦120,000</span> so far!"</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Amina Yusuf</h4>
+                            <p>Freelancer, Abuja</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"As a freelancer, JuicyAds helps me fill gaps between projects. The variety of tasks keeps it interesting, and I love that I can work whenever I have free time."</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Emeka Nwosu</h4>
+                            <p>Corper, Port Harcourt</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"JuicyAds has been a game-changer for me. I can earn extra income during my service year. The platform is legit and pays as promised in <span class="naira-symbol">₦aira</span>."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ready to Start Earning?</h2>
+                <p>Join JuicyAds today and start making money in your spare time. No hidden fees, no commitments.</p>
+            </div>
+            <a href="#" class="btn btn-secondary">Create Free Account</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="#" class="logo" style="color: white; margin-bottom: 25px; display: inline-block;">
+                        <i class="fas fa-lemon"></i> JuicyAds
+                    </a>
+                    <p>The easiest way to earn money online by completing simple tasks and watching ads. Join our community today!</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#tasks">Tasks</a></li>
+                        <li><a href="#earnings">Earnings</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Payment Methods</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                        <div style="background-color: white; padding: 10px; border-radius: 8px;">
+                            <span style="color: #333; font-weight: bold;">₦</span>
+                        </div>
+                        <div style="background-color: white; padding: 10px; border-radius: 8px;">
+                            <i class="fas fa-university" style="color: #333;"></i>
+                        </div>
+                        <div style="background-color: white; padding: 10px; border-radius: 8px;">
+                            <i class="fas fa-mobile-alt" style="color: #333;"></i>
+                        </div>
+                        <div style="background-color: white; padding: 10px; border-radius: 8px;">
+                            <i class="fas fa-gift" style="color: #333;"></i>
+                        </div>
+                    </div>
+                    <p style="margin-top: 20px; font-size: 0.9rem; color: #ccc;">All payments in Nigerian <span class="naira-symbol">₦aira</span>. Fast withdrawals to Nigerian bank accounts.</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 JuicyAds. All rights reserved. | Payments in <span class="naira-symbol">₦aira</span> for Nigerian users</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Animate chart bars on scroll
+        const animateCharts = () => {
+            const charts = [
+                document.getElementById('chart-1'),
+                document.getElementById('chart-2'),
+                document.getElementById('chart-3')
+            ];
+            
+            const percentages = ['70%', '85%', '95%'];
+            
+            charts.forEach((chart, index) => {
+                if (isElementInViewport(chart)) {
+                    setTimeout(() => {
+                        chart.style.width = percentages[index];
+                    }, index * 300);
+                }
+            });
+        };
+        
+        // Check if element is in viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+        
+        // Initialize charts when page loads
+        window.addEventListener('load', animateCharts);
+        
+        // Re-run animation when scrolling
+        window.addEventListener('scroll', animateCharts);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JuicyAds - Earn Money by Completing Tasks</title>
+    <meta name="description" content="Earn extra income in Naira by completing simple tasks. Join thousands of Nigerians earning daily on JuicyAds. Sign up now and start making money in your spare time.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4caf50;
+            --primary-dark: #3d8b40;
+            --primary-light: #e8f5e9;
+            --secondary: #ff9800;
+            --accent: #008751;
+            --dark: #1a1a1a;
+            --gray: #666;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            opacity: 0.9;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--white);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 2rem;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, rgba(255, 255, 255, 1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            margin-bottom: 1.5rem;
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .earning-badge {
+            display: inline-flex;
+            align-items: center;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            margin-top: 20px;
+        }
+
+        .earning-badge i {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--light-gray);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+
+        .feature-icon i {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* How It Works */
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .steps:before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-light);
+            z-index: 1;
+        }
+
+        .step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 30%;
+            background-color: var(--white);
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Task Types */
+        .tasks {
+            background-color: var(--light-gray);
+        }
+
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .task-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .task-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .task-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .task-info {
+            padding: 25px;
+        }
+
+        .task-info h4 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .task-info h4 i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        /* Earnings Section */
+        .earnings {
+            background-color: var(--primary-light);
+        }
+
+        .earnings-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .earnings-chart {
+            flex: 1;
+        }
+
+        .chart-bar {
+            margin-bottom: 30px;
+        }
+
+        .chart-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .chart-bar-inner {
+            height: 25px;
+            background-color: #e0e0e0;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .chart-bar-fill {
+            height: 100%;
+            background-color: var(--primary);
+            border-radius: 50px;
+        }
+
+        .earnings-text {
+            flex: 1;
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 8px 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .payment-method i {
+            color: var(--primary);
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .testimonial-avatar i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .testimonial-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .testimonial-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .rating {
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2, .cta-section p {
+            color: white;
+        }
+
+        .cta-section h2:after {
+            background-color: white;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cta-section .btn {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .cta-section .btn:hover {
+            background-color: var(--light-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content {
+                flex-direction: column;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .earnings-content {
+                flex-direction: column;
+            }
+
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .steps:before {
+                display: none;
+            }
+
+            .step {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+        }
+
+        /* Naira Highlight */
+        .naira {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Animated Headline */
+        .animated-headline {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .animated-headline .rotate-text {
+            color: var(--primary);
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-lemon"></i> Juicy<span>Ads</span>
+            </a>
+            
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#tasks">Tasks</a></li>
+                <li><a href="#earnings">Earnings</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="https://app.juicyads.co/login" class="btn btn-outline">Sign in</a></li>
+                <li><a href="https://app.juicyads.co/register" class="btn btn-primary">Get Started</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="animated-headline">
+                        Earn <span class="rotate-text">Naira</span> by Completing<br>
+                        <span class="rotate-text">Simple Tasks</span> Online
+                    </div>
+                    <p>Join thousands of Nigerians who are earning extra income daily by completing simple tasks on JuicyAds. No experience needed - start earning in your spare time!</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="https://app.juicyads.co/register" class="btn btn-primary">Start Earning Now</a>
+                        <a href="#how-it-works" class="btn btn-outline">Learn More</a>
+                    </div>
+                    
+                    <div class="earning-badge">
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <strong>Earn up to <span class="naira">₦50,000</span> monthly</strong><br>
+                            <small>From simple tasks in your spare time</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Earn money online with JuicyAds">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features section" id="features">
+        <div class="container">
+            <div class="text-center">
+                <h2>Why Choose JuicyAds?</h2>
+                <p>Our platform offers the easiest way to earn extra income online in Nigeria</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Earn directly from your smartphone. Our platform works perfectly on all mobile devices.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Instant Withdrawals</h3>
+                    <p>Get paid instantly via bank transfer, airtime, or gift cards. No waiting for your money.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Simple Tasks</h3>
+                    <p>Complete easy tasks like surveys, watching videos, and testing apps. No special skills needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section" id="how-it-works">
+        <div class="container">
+            <div class="text-center">
+                <h2>How It Works</h2>
+                <p>Start earning in just 3 simple steps</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Sign Up Free</h3>
+                    <p>Create your free Nigerian account in less than 2 minutes. No payment required to get started.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Complete Tasks</h3>
+                    <p>Browse available tasks and choose what interests you. Most tasks take just a few minutes.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Paid</h3>
+                    <p>Earn <span class="naira">₦aira</span> for each completed task. Withdraw your earnings whenever you want.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Task Types Section -->
+    <section class="tasks section" id="tasks">
+        <div class="container">
+            <div class="text-center">
+                <h2>Available Tasks</h2>
+                <p>Choose from a variety of tasks that match your interests</p>
+            </div>
+            
+            <div class="tasks-grid">
+                <div class="task-card">
+                    <div class="task-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');"></div>
+                    <div class="task-info">
+                        <h4><i class="fas fa-clipboard-check"></i> Surveys</h4>
+                        <p>Share your opinions on products and services. Earn <span class="naira">₦500-₦5,000</span> per survey.</p>
+                    </div>
+                </div>
+                
+                <div class="task-card">
+                    <div class="task-image" style="background-image: url('https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');"></div>
+                    <div class="task-info">
+                        <h4><i class="fas fa-play-circle"></i> Watch Ads</h4>
+                        <p>Watch short video advertisements. Earn <span class="naira">₦50-₦500</span> per video.</p>
+                    </div>
+                </div>
+                
+                <div class="task-card">
+                    <div class="task-image" style="background-image: url('https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80');"></div>
+                    <div class="task-info">
+                        <h4><i class="fas fa-mobile-alt"></i> App Testing</h4>
+                        <p>Test new apps and provide feedback. Earn <span class="naira">₦1,000-₦10,000</span> per app.</p>
+                    </div>
+                </div>
+                
+                <div class="task-card">
+                    <div class="task-image" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');"></div>
+                    <div class="task-info">
+                        <h4><i class="fas fa-shopping-cart"></i> Online Shopping</h4>
+                        <p>Complete shopping tasks and reviews. Earn cashback and rewards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Earnings Section -->
+    <section class="earnings section" id="earnings">
+        <div class="container">
+            <div class="text-center">
+                <h2>Real Earnings Potential</h2>
+                <p>See how much you could earn in <span class="naira">₦aira</span> based on time invested</p>
+            </div>
+            
+            <div class="earnings-content">
+                <div class="earnings-chart">
+                    <div class="chart-bar">
+                        <div class="chart-label">
+                            <span>30 minutes/day</span>
+                            <span class="naira">₦2,000-₦4,000</span>
+                        </div>
+                        <div class="chart-bar-inner">
+                            <div class="chart-bar-fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-bar">
+                        <div class="chart-label">
+                            <span>1 hour/day</span>
+                            <span class="naira">₦6,000-₦10,000</span>
+                        </div>
+                        <div class="chart-bar-inner">
+                            <div class="chart-bar-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-bar">
+                        <div class="chart-label">
+                            <span>2 hours/day</span>
+                            <span class="naira">₦12,000-₦20,000</span>
+                        </div>
+                        <div class="chart-bar-inner">
+                            <div class="chart-bar-fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <div class="payment-method">
+                            <i class="fas fa-university"></i> <span>Bank Transfer</span>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fas fa-mobile-alt"></i> <span>Airtime</span>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fas fa-gift"></i> <span>Gift Cards</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="earnings-text">
+                    <h3>Maximize Your Earnings</h3>
+                    <p>Our platform offers bonus opportunities, referral commissions (<span class="naira">₦500</span> per referral), and special high-paying tasks that can significantly increase your income.</p>
+                    <p>Top Nigerian earners on JuicyAds make over <span class="naira">₦100,000</span> per month by combining regular tasks with referral bonuses and special offers.</p>
+                    <a href="https://app.juicyads.co/register" class="btn btn-secondary" style="margin-top: 20px;">Start Earning Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <div class="text-center">
+                <h2>What Our Users Say</h2>
+                <p>Read testimonials from Nigerians earning with JuicyAds</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Chinedu Okoro</h4>
+                            <p>Student, Lagos</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"I've been using JuicyAds for 6 months to earn extra money while in university. It's so easy to use and the payments are always on time. I've made over <span class="naira">₦120,000</span> so far!"</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Amina Yusuf</h4>
+                            <p>Freelancer, Abuja</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"As a freelancer, JuicyAds helps me fill gaps between projects. The variety of tasks keeps it interesting, and I love that I can work whenever I have free time."</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Emeka Nwosu</h4>
+                            <p>Corper, Port Harcourt</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"JuicyAds has been a game-changer during my NYSC. I can earn extra income during breaks and in the evenings. The platform is legit and pays as promised directly to my bank account."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Ready to Start Earning?</h2>
+                <p>Join JuicyAds today and start making money in your spare time. No hidden fees, no commitments.</p>
+                <a href="https://app.juicyads.co/register" class="btn btn-secondary" style="margin-top: 30px;">Create Free Account</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="#" class="logo" style="color: white; margin-bottom: 25px; display: inline-block;">
+                        <i class="fas fa-lemon"></i> Juicy<span>Ads</span>
+                    </a>
+                    <p>The easiest way for Nigerians to earn money online by completing simple tasks. Join our community today!</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#tasks">Tasks</a></li>
+                        <li><a href="#earnings">Earnings</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Payment Methods</h3>
+                    <div class="payment-methods" style="margin-top: 10px;">
+                        <div class="payment-method">
+                            <i class="fas fa-university"></i> <span>Bank Transfer</span>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fas fa-mobile-alt"></i> <span>Airtime</span>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fas fa-gift"></i> <span>Gift Cards</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 20px; font-size: 0.9rem; color: #ccc;">All payments in Nigerian <span class="naira">₦aira</span>. Fast withdrawals to Nigerian bank accounts.</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 JuicyAds. All rights reserved. | Payments in <span class="naira">₦aira</span> for Nigerian users</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animated headline text rotation
+        const rotateTexts = ['Naira', 'Simple Tasks', 'Extra Income', 'Real Money'];
+        let currentIndex = 0;
+        const rotateElement = document.querySelector('.rotate-text');
+        
+        function rotateHeadline() {
+            if (rotateElement) {
+                rotateElement.style.opacity = '0';
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % rotateTexts.length;
+                    rotateElement.textContent = rotateTexts[currentIndex];
+                    rotateElement.style.opacity = '1';
+                }, 500);
+            }
+        }
+        
+        // Start rotating after page loads
+        window.addEventListener('load', () => {
+            setInterval(rotateHeadline, 3000);
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>) {
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    
+                    // Scroll to target
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

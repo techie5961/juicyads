@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JuicyAds - About Us</title>
+    <meta name="description" content="Learn about JuicyAds, Nigeria's leading task-based earning platform. Our mission, vision, and commitment to helping Nigerians earn extra income.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4caf50;
+            --primary-dark: #3d8b40;
+            --primary-light: #e8f5e9;
+            --secondary: #ff9800;
+            --accent: #008751;
+            --dark: #1a1a1a;
+            --gray: #666;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--white);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 2rem;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, rgba(255, 255, 255, 1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .team-avatar i {
+            font-size: 3rem;
+            color: var(--primary);
+        }
+
+        /* Terms Content */
+        .terms-content {
+            background: white;
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+        }
+
+        .terms-section {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .terms-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .highlight-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1.2rem;
+            color: var(--gray);
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Naira Highlight */
+        .naira {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .content-card, .terms-content {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+
+            .content-card, .terms-content {
+                padding: 20px;
+            }
+        }
+
+        /* Page Navigation */
+        .page-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-lemon"></i> Juicy<span>Ads</span>
+            </a>
+            
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#terms">Terms</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="https://app.juicyads.co/login" class="btn btn-primary" style="padding: 8px 20px;">Sign in</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- About Us Page Content -->
+    <main id="about">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>About JuicyAds</h1>
+                    <p>Empowering Nigerians to earn extra income through simple, accessible tasks since 2020. We're building Africa's largest community of task earners.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="content-card">
+                    <h2>Our Mission</h2>
+                    <p>At JuicyAds, our mission is to democratize access to income opportunities for every Nigerian. We believe that everyone should have the chance to earn extra money, regardless of their location, education, or professional background.</p>
+                    
+                    <h3>Our Vision</h3>
+                    <p>To become Africa's leading platform for micro-task earning, connecting millions of Nigerians with flexible income opportunities while providing businesses with access to a reliable, on-demand workforce.</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Core Values:</strong> Transparency, Accessibility, Empowerment, Innovation, Community</p>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h2>Our Story</h2>
+                    <p>JuicyAds was founded in 2020 by a team of Nigerian entrepreneurs who recognized the growing need for flexible income opportunities in the digital economy. What started as a small platform with just 100 users has grown into a community of over 250,000 active earners across Nigeria.</p>
+                    
+                    <p>We noticed that many Nigerians had skills and time to spare but lacked accessible platforms to monetize them. Traditional online earning platforms were often not optimized for the Nigerian market, with complex interfaces and payment systems that didn't work well for local users.</p>
+                    
+                    <p>JuicyAds was created to solve these problems. We built a platform that's mobile-first, easy to use, and optimized for Nigerian users, with instant payments in Naira and support for local payment methods.</p>
+                </div>
+
+                <div class="content-card">
+                    <h2>By The Numbers</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">250K+</div>
+                            <div class="stat-label">Active Users</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">₦500M+</div>
+                            <div class="stat-label">Paid to Users</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">36</div>
+                            <div class="stat-label">States Covered</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">50K+</div>
+                            <div class="stat-label">Tasks Completed Daily</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h2>How We Make Money</h2>
+                    <p>JuicyAds operates on a transparent commission model. We charge businesses a small fee for accessing our workforce, while workers keep 100% of their task earnings. Our revenue comes from:</p>
+                    
+                    <ul>
+                        <li><strong>Business Subscriptions:</strong> Companies pay to post tasks and access our workforce</li>
+                        <li><strong>Premium Features:</strong> Optional upgrades for businesses needing advanced features</li>
+                        <li><strong>Verification Services:</strong> Optional identity verification for higher-paying tasks</li>
+                    </ul>
+                    
+                    <p>We're proud that our business model aligns with our mission - the more our users earn, the more successful we become.</p>
+                </div>
+
+                <div class="content-card">
+                    <h2>Meet Our Leadership Team</h2>
+                    <div class="team-grid">
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3>Adebayo Adekunle</h3>
+                            <p>CEO & Founder</p>
+                            <p>10+ years in tech entrepreneurship</p>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Chioma Nwosu</h3>
+                            <p>COO</p>
+                            <p>Operations & Community Management</p>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>Emeka Okafor</h3>
+                            <p>CTO</p>
+                            <p>Product Development</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h2>Our Commitment to Nigeria</h2>
+                    <p>We're more than just a platform - we're building a community. Our commitment includes:</p>
+                    
+                    <ul>
+                        <li><strong>Financial Inclusion:</strong> Bringing earning opportunities to underserved communities</li>
+                        <li><strong>Digital Literacy:</strong> Free resources to help users maximize their earnings</li>
+                        <li><strong>Local Partnerships:</strong> Working with Nigerian businesses and organizations</li>
+                        <li><strong>Economic Empowerment:</strong> Creating sustainable income streams for Nigerians</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Join our mission!</strong> Whether you're looking to earn extra income or your business needs reliable task completion, JuicyAds is here to help.</p>
+                    </div>
+                    
+                    <div class="page-nav">
+                        <a href="index.html" class="btn btn-primary">Back to Home</a>
+                        <a href="#terms" class="btn" style="background: var(--light-gray); color: var(--dark);">Read Terms</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Terms & Conditions Page Content -->
+    <section id="terms" class="content-section" style="background: var(--light-gray);">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Terms & Conditions</h1>
+                <p>Last Updated: December 1, 2023</p>
+            </div>
+
+            <div class="terms-content">
+                <div class="terms-section">
+                    <h2>1. Acceptance of Terms</h2>
+                    <p>By accessing and using JuicyAds ("the Platform"), you agree to be bound by these Terms and Conditions ("Terms"). If you disagree with any part of these Terms, you may not access the Platform.</p>
+                    <p>These Terms apply to all users of the Platform, including but not limited to workers, businesses, and visitors.</p>
+                </div>
+
+                <div class="terms-section">
+                    <h2>2. Account Registration</h2>
+                    <h3>2.1 Eligibility</h3>
+                    <p>To use JuicyAds, you must:</p>
+                    <ul>
+                        <li>Be at least 18 years old</li>
+                        <li>Be a resident of Nigeria</li>
+                        <li>Have a valid Nigerian bank account for withdrawals</li>
+                        <li>Provide accurate and complete registration information</li>
+                    </ul>
+                    
+                    <h3>2.2 Account Security</h3>
+                    <p>You are responsible for:</p>
+                    <ul>
+                        <li>Maintaining the confidentiality of your account credentials</li>
+                        <li>All activities that occur under your account</li>
+                        <li>Immediately notifying us of any unauthorized use of your account</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>3. Worker Terms</h2>
+                    <h3>3.1 Task Completion</h3>
+                    <p>As a worker on JuicyAds, you agree to:</p>
+                    <ul>
+                        <li>Complete tasks honestly and according to instructions</li>
+                        <li>Not use automated systems, bots, or scripts to complete tasks</li>
+                        <li>Maintain a minimum quality standard for completed tasks</li>
+                        <li>Not create multiple accounts to bypass task limits</li>
+                    </ul>
+                    
+                    <h3>3.2 Payments</h3>
+                    <p>Payment terms for workers:</p>
+                    <ul>
+                        <li>Tasks are paid upon successful completion and verification</li>
+                        <li>Minimum withdrawal amount: <span class="naira">₦1,000</span></li>
+                        <li>Withdrawals are processed within 24-48 hours</li>
+                        <li>We reserve the right to withhold payment for fraudulent activity</li>
+                        <li>All payments are made in Nigerian Naira (₦)</li>
+                    </ul>
+                    
+                    <h3>3.3 Prohibited Activities</h3>
+                    <p>Workers must not:</p>
+                    <ul>
+                        <li>Submit fraudulent or false information</li>
+                        <li>Attempt to manipulate the platform or other users</li>
+                        <li>Share task details or solutions with others</li>
+                        <li>Use the platform for illegal activities</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>4. Business Terms</h2>
+                    <h3>4.1 Task Creation</h3>
+                    <p>Businesses creating tasks agree to:</p>
+                    <ul>
+                        <li>Provide clear, complete task instructions</li>
+                        <li>Set fair compensation for tasks</li>
+                        <li>Review completed tasks within 72 hours</li>
+                        <li>Not create tasks that violate Nigerian laws or platform policies</li>
+                    </ul>
+                    
+                    <h3>4.2 Payments</h3>
+                    <p>Business payment terms:</p>
+                    <ul>
+                        <li>Fund tasks before they become available to workers</li>
+                        <li>Payments are released to workers upon task approval</li>
+                        <li>Platform fees are non-refundable</li>
+                        <li>All transactions are in Nigerian Naira (₦)</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>5. Fees and Commissions</h2>
+                    <p>JuicyAds charges the following fees:</p>
+                    <ul>
+                        <li><strong>Worker Fees:</strong> No fees for workers - you keep 100% of task earnings</li>
+                        <li><strong>Business Fees:</strong> 15% commission on task value</li>
+                        <li><strong>Withdrawal Fees:</strong> Free for bank transfers, ₦50 for airtime transfers</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Important:</strong> Fees are subject to change with 30 days' notice. Current fees will always be displayed on the platform.</p>
+                    </div>
+                </div>
+
+                <div class="terms-section">
+                    <h2>6. Privacy and Data</h2>
+                    <p>We collect and use your data as described in our <a href="#">Privacy Policy</a>. By using JuicyAds, you consent to:</p>
+                    <ul>
+                        <li>Collection of personal information for platform operation</li>
+                        <li>Use of data to improve our services</li>
+                        <li>Sharing of anonymized data with partners</li>
+                        <li>Communication regarding your account and platform updates</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>7. Intellectual Property</h2>
+                    <p>All content on the JuicyAds platform, including but not limited to:</p>
+                    <ul>
+                        <li>Logo, brand name, and design elements</li>
+                        <li>Platform code and software</li>
+                        <li>Documentation and materials</li>
+                    </ul>
+                    <p>Are owned by JuicyAds Technologies Limited and protected by Nigerian and international copyright laws.</p>
+                </div>
+
+                <div class="terms-section">
+                    <h2>8. Termination</h2>
+                    <p>We may terminate or suspend your account immediately, without prior notice, for:</p>
+                    <ul>
+                        <li>Violation of these Terms</li>
+                        <li>Fraudulent activity</li>
+                        <li>Creating multiple accounts</li>
+                        <li>Any activity that harms the platform or other users</li>
+                    </ul>
+                    <p>Upon termination, your right to use the Platform will immediately cease.</p>
+                </div>
+
+                <div class="terms-section">
+                    <h2>9. Limitation of Liability</h2>
+                    <p>JuicyAds shall not be liable for:</p>
+                    <ul>
+                        <li>Any indirect, incidental, or consequential damages</li>
+                        <li>Loss of data, profits, or business opportunities</li>
+                        <li>Issues arising from third-party services (banks, telecoms, etc.)</li>
+                        <li>User disputes regarding task completion or payment</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>10. Dispute Resolution</h2>
+                    <p>Any disputes arising from these Terms shall be resolved through:</p>
+                    <ol>
+                        <li>Direct negotiation between parties</li>
+                        <li>Mediation through the Platform's dispute resolution system</li>
+                        <li>Legal proceedings in Nigerian courts if necessary</li>
+                    </ol>
+                    <p>By using JuicyAds, you agree to attempt resolution through the Platform's systems before pursuing legal action.</p>
+                </div>
+
+                <div class="terms-section">
+                    <h2>11. Changes to Terms</h2>
+                    <p>We reserve the right to modify these Terms at any time. Changes will be:</p>
+                    <ul>
+                        <li>Posted on the Platform</li>
+                        <li>Communicated via email to registered users</li>
+                        <li>Effective 30 days after posting</li>
+                    </ul>
+                    <p>Continued use of the Platform after changes constitutes acceptance of the new Terms.</p>
+                </div>
+
+                <div class="terms-section">
+                    <h2>12. Contact Information</h2>
+                    <p>For questions about these Terms, contact us at:</p>
+                    <ul>
+                        <li><strong>Email:</strong> legal@juicyads.co</li>
+                        <li><strong>Address:</strong> JuicyAds Technologies Limited, Victoria Island, Lagos, Nigeria</li>
+                        <li><strong>Phone:</strong> +234 901 234 5678</li>
+                    </ul>
+                </div>
+
+                <div class="page-nav" style="margin-top: 40px;">
+                    <a href="index.html" class="btn btn-primary">Back to Home</a>
+                    <a href="#about" class="btn" style="background: var(--light-gray); color: var(--dark);">About Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="index.html" class="logo" style="color: white; margin-bottom: 25px; display: inline-block;">
+                        <i class="fas fa-lemon"></i> Juicy<span>Ads</span>
+                    </a>
+                    <p>Empowering Nigerians to earn extra income through simple tasks. Join our community today!</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#terms">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> support@juicyads.co</li>
+                        <li><i class="fas fa-phone"></i> +234 901 234 5678</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Victoria Island, Lagos</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">GDPR Compliance</a></li>
+                        <li><a href="#">Data Protection</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 JuicyAds Technologies Limited. All rights reserved. | RC: 1234567</p>
+                <p>All transactions in Nigerian Naira (₦) | Licensed by Nigerian Financial Authorities</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+            });
+        });
+        
+        // Back to top button
+        const backToTop = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Don't smooth scroll for page navigation links
+                if (href === '#about' || href === '#terms') {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+        
+        // Update active link based on scroll position
+        const sections = document.querySelectorAll('main, section[id]');
+        const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

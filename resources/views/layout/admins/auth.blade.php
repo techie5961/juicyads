@@ -17,7 +17,7 @@
             --text:black;
         }
        body{
-  
+  color:var(--text);
    background-color: var(--bg);
 
   

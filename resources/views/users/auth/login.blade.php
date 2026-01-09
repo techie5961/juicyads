@@ -1,6 +1,6 @@
 @extends('layout.users.auth')
 @section('title')
-    Register
+    Login
 @endsection
 @section('css')
 <style class="css">

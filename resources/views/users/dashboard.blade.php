@@ -184,11 +184,12 @@
             position:relative;
             overflow:hidden;
             border:1px solid var(--bg-lighter);
-
+            text-align: center;
         }
         .quick-link .content{
             position:relative;
             z-index:20;
+            text-align: center;
 
         }
        

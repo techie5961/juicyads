@@ -4,18 +4,25 @@
 @endsection
 @section('main')
     <section class="column p-10  w-full flex-auto justify-center">
-        <form action="{{ url('admins/post/login/process') }}" method="POST" onsubmit="PostRequest(event,this,call_back)" class="w-full max-w-500 p-10 align-center br-10 bg-transparent c-white column g-5">
+        <form action="{{ url('admins/post/login/process') }}" method="POST" onsubmit="PostRequest(event,this,call_back)" class="w-full max-w-500 p-10 align-center br-10 bg-transparent column g-5">
             <img src="{{ asset('favicon/logo.png?v=1.3') }}" class="w-quarter" alt="">
-           <span style="font-family:titan one" class="c-primary desc">Admin Login</span>
+           <span class="c-primary bold desc">Admin Login</span>
              <span class="m-bottom-20">Login with your credentials</span>
            <input type="hidden" class="input" name="_token" value="{{ csrf_token() }}">
-            <label for="" class="m-right-auto">Admin Tag</label>
-           <div style="border:1px solid var(--bg-lighter)" class="cont  row align-center bg-light w-full h-50 border-1 border-color-silver">
-                <input autocomplete="off" readonly onfocus="this.removeAttribute('readonly')" type="text" placeholder="Enter your Admin Tag" name="tag" class="inp c-white input required w-full h-full no-border bg-transparent br-10">
+           
+           {{-- NEW INPUT --}}
+          <div class="column w-full g-5">
+           <label for="" class="m-right-auto">Admin Tag</label>
+           <div class="cont bg-dim row align-center w-full h-50 br-5 border-1 border-color-silver">
+                 <input autocomplete="off" readonly onfocus="this.removeAttribute('readonly')" type="text" placeholder="Enter your Admin Tag" name="tag" class="inp input required w-full h-full no-border bg-transparent br-10">
             </div>
+          </div>
+
+           {{-- NEW INPUT --}}
+          <div class="column w-full g-5">
               <label for="" class="m-right-auto m-top-10">Password</label>
-            <div style="border:1px solid var(--bg-lighter)"  class="cont row align-center bg-light w-full h-50 border-1 border-color-silver">
-                <input autocomplete="new-password" type="password" placeholder="Enter your Account Password" name="password" class="inp input required w-full h-full c-white no-border bg-transparent br-10">
+            <div class="cont bg-dim row align-center w-full h-50 br-5 border-1 border-color-silver">
+                <input autocomplete="new-password" type="password" placeholder="Enter your Account Password" name="password" class="inp input required w-full h-full no-border bg-transparent br-10">
               <div onclick="
            try{
             if(this.closest('.cont').querySelector('input').type == 'text'){
@@ -46,6 +53,7 @@
 
             </div>
             </div>
+          </div>
             
              <button class="post h-50 clip-0 br-0 m-top-20 m-bottom-10 w-full bold"><span>Login Safely</span></button>
           

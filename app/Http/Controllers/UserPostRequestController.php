@@ -52,7 +52,7 @@ class UserPostRequestController extends Controller
         'package' => json_encode([]),
         'coupon' => request()->input('coupon') ?? null,
         'activities_balance' => $welcome_bonus,
-        'photo' => 'avatar.jpeg',
+        'photo' => 'avatar.jpg',
         'ref' => request()->input('ref'),
         'password' => Hash::make(request()->input('password')),
         'updated' => Carbon::now(),

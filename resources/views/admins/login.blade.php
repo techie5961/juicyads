@@ -2,7 +2,7 @@
 @section('title')
     Login
 @endsection
-@section('main')
+@section('main')   
     <section class="column p-10  w-full flex-auto justify-center">
         <form action="{{ url('admins/post/login/process') }}" method="POST" onsubmit="PostRequest(event,this,call_back)" class="w-full max-w-500 p-10 align-center br-10 bg-transparent column g-5">
             <img src="{{ asset('favicon/logo.png?v=1.3') }}" class="w-quarter" alt="">

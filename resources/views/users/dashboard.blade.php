@@ -191,7 +191,7 @@
             z-index:20;
             text-align: center;
 
-        }
+        }  
        
       .quick-link::before{
         content:'';

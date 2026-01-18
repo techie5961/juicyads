@@ -170,7 +170,8 @@ class UserPostRequestController extends Controller
     public function Withdraw(){
          $pkg=json_decode(Auth::guard('users')->user()->package);
         $finance=json_decode(DB::table('settings')->where('key','finance_settings')->first()->json ?? '{}');
-    if(request('wallet') == ''){
+        $max_withdrawal=2000;
+        if(request('wallet') == ''){
         return response()->json([
             'message' => 'Please select a wallet to withdraw from',
             'status' => 'error'
@@ -178,12 +179,10 @@ class UserPostRequestController extends Controller
     }
         if(request('wallet') == 'deposit_balance'){
          $minimum_withdrawal= json_decode(DB::table('settings')->where('key','finance_settings')->first()->json)->wallets->games->minimum;
-     $maximum_withdrawal=1000000000000000;
-
+   
     }else{
          $minimum_withdrawal=  $finance->wallets->{str_replace('_balance','',request('wallet'))}->minimum;
-     $maximum_withdrawal=100000000;
-
+   
     }
         $uniqid=strtoupper(uniqid('TRX'));
       if(request()->input('amount') == 0){
@@ -202,6 +201,12 @@ class UserPostRequestController extends Controller
       if(request()->input('amount') < $minimum_withdrawal){
         return response()->json([
             'message' => 'Minimum withdrawal for '.ucfirst(str_replace('_balance','',request('wallet'))).' wallet is &#8358;'.number_format($minimum_withdrawal,2).'',
+            'status' => 'error'
+        ]);
+      }
+      if(request('amount') > $max_withdrawal){
+        return response()->json([
+            'message' => 'Maximum withdrawal is &#8358;'.number_format($max_withdrawal,2).'',
             'status' => 'error'
         ]);
       }
